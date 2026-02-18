@@ -42,7 +42,7 @@ async function setup() {
 
     console.log(`✅ Using database: ${targetDb.name} (${targetDb.uuid})`);
 
-    // 3. Update .dev.vars (Only persistent change)
+    // 3. Update .dev.vars (The only persistent file modified)
     let varsContent = '';
     if (fs.existsSync(VARS_FILE)) {
         varsContent = fs.readFileSync(VARS_FILE, 'utf-8');
@@ -71,9 +71,9 @@ async function setup() {
     }
 
     // 4. Apply migrations to remote
-    // We avoid touching or reading wrangler.jsonc by creating a temporary minimal config
+    // We use a temporary config file so we don't have to touch the real wrangler.jsonc
     console.log('🚀 Applying migrations to remote database...');
-    const tempConfigPath = path.join(os.tmpdir(), `wrangler-setup-${Date.now()}.json`);
+    const tempConfigPath = path.join(os.tmpdir(), `wrangler-migration-${Date.now()}.json`);
     const migrationsDir = path.resolve(process.cwd(), 'migrations');
 
     const minimalConfig = {
@@ -94,7 +94,7 @@ async function setup() {
         });
         console.log('✅ Migrations applied successfully.');
     } catch (error) {
-        console.error('⚠ Failed to apply migrations. You may need to run this manually.');
+        console.error('⚠ Failed to apply migrations. Check the output above.');
     } finally {
         if (fs.existsSync(tempConfigPath)) {
             fs.unlinkSync(tempConfigPath);
