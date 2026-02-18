@@ -12,7 +12,7 @@ export async function joinLeague(formData: FormData) {
     const db = await getDb();
 
     if (!db) {
-        console.error("OC_DB binding not found");
+        console.error("DB binding not found");
         return { success: false, error: "Database binding missing" };
     }
 

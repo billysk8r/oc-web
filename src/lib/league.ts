@@ -12,9 +12,9 @@ export async function getDb() {
     // Use dynamic import to avoid bundling issues with @opennextjs/cloudflare in some environments
     const { getCloudflareContext } = await import("@opennextjs/cloudflare");
     const { env } = await getCloudflareContext();
-    const db = (env as any).OC_DB;
+    const db = (env as any).DB;
     if (!db) {
-        throw new Error("OC_DB binding not found");
+        throw new Error("DB binding not found");
     }
     return db;
 }
