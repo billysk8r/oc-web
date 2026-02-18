@@ -34,7 +34,7 @@
 	],
 	"observability": {
 		"enabled": true
-	}
+	},
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
@@ -52,5 +52,13 @@
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
 	 */
+	"d1_databases": [
+		{
+			"binding": "DATABASE",
+			"database_name": "oc-db",
+			"database_id": "06ce2e67-577c-4c5e-ae41-32e94c7be149",
+			"migrations_dir": "migrations"
+		}
+	],
 	// "vars": {  "MY_VARIABLE": "production_value" }
 }
