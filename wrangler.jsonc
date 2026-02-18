@@ -54,9 +54,7 @@
 	 */
 	"d1_databases": [
 		{
-			"binding": "DATABASE",
-			"database_name": "${DB_NAME}",
-			"database_id": "${DB_ID}",
+			"binding": "<OC_DB>",
 			"migrations_dir": "migrations"
 		}
 	],
