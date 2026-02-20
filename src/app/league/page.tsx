@@ -31,7 +31,7 @@ export default async function LeaguePage() {
                     </p>
                     <p className="text-center font-normal tracking-wide mt-4">
                         Participation is free and carries no obligation — it simply signals:{" "}
-                        <span className="italic block mt-2 text-xl">"I want this to exist."</span>
+                        <span className="italic block mt-2 text-xl">&quot;I want this to exist.&quot;</span>
                     </p>
                 </section>
 

@@ -3,11 +3,17 @@
 import { useEffect } from "react";
 import Script from "next/script";
 
+declare global {
+    interface Window {
+        fd?: (type: string, options: { formId: string; containerEl: string }) => void;
+    }
+}
+
 export default function FlodeskForm() {
     useEffect(() => {
         // This ensures window.fd is available before calling it
-        if (typeof window !== "undefined" && (window as any).fd) {
-            (window as any).fd("form", {
+        if (typeof window !== "undefined" && window.fd) {
+            window.fd("form", {
                 formId: "695adca147a952f8020cf854",
                 containerEl: "#fd-form-695adca147a952f8020cf854",
             });
@@ -43,8 +49,8 @@ export default function FlodeskForm() {
           `,
                 }}
                 onLoad={() => {
-                    if ((window as any).fd) {
-                        (window as any).fd("form", {
+                    if (window.fd) {
+                        window.fd("form", {
                             formId: "695adca147a952f8020cf854",
                             containerEl: "#fd-form-695adca147a952f8020cf854",
                         });

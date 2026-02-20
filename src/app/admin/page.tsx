@@ -1,4 +1,4 @@
-import { fetchAllSignups, isAdminPasswordSet, isAuthenticated } from "@/lib/league";
+import { Signup, fetchAllSignups, isAdminPasswordSet, isAuthenticated } from "@/lib/league";
 import SetupPasswordForm from "./SetupPasswordForm";
 import LoginForm from "./LoginForm";
 import { logoutAdmin } from "./actions";
@@ -62,7 +62,7 @@ export default async function AdminPage() {
                                 </td>
                             </tr>
                         ) : (
-                            signups.map((signup: any) => (
+                            signups.map((signup: Signup) => (
                                 <tr key={signup.id} className="hover:bg-gray-50 transition-colors text-sm">
                                     <td className="p-4">{signup.name}</td>
                                     <td className="p-4">{signup.email}</td>

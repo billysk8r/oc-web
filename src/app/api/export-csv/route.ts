@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
-import { fetchAllSignups } from "../../../lib/league";
+import { Signup, fetchAllSignups } from "../../../lib/league";
 
 export async function GET() {
     try {
         const signups = await fetchAllSignups();
 
         const headers = ["ID", "Name", "Email", "Location", "Opt-in", "Joined At", "Client ID"];
-        const rows = signups.map((s: any) => [
+        const rows = signups.map((s: Signup) => [
             s.id,
             s.name,
             s.email,
@@ -17,7 +17,7 @@ export async function GET() {
         ]);
 
         const csvContent = [headers, ...rows]
-            .map((row) => row.map((cell: any) => `"${String(cell || "").replace(/"/g, '""')}"`).join(","))
+            .map((row) => row.map((cell) => `"${String(cell || "").replace(/"/g, '""')}"`).join(","))
             .join("\n");
 
         return new NextResponse(csvContent, {

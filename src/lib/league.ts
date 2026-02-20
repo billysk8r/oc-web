@@ -1,5 +1,15 @@
 import { cookies } from "next/headers";
 
+export interface Signup {
+    id: number;
+    name: string;
+    email: string;
+    location: string;
+    opt_in: boolean;
+    joined_at: string;
+    client_id?: string;
+}
+
 export async function hashPassword(password: string): Promise<string> {
     const encoder = new TextEncoder();
     const data = encoder.encode(password);
@@ -11,8 +21,8 @@ export async function hashPassword(password: string): Promise<string> {
 export async function getDb() {
     // Use dynamic import to avoid bundling issues with @opennextjs/cloudflare in some environments
     const { getCloudflareContext } = await import("@opennextjs/cloudflare");
-    const { env } = await getCloudflareContext();
-    const db = (env as any).DB;
+    const { env } = (await getCloudflareContext()) as { env: CloudflareEnv };
+    const db = env.DB;
     if (!db) {
         throw new Error("DB binding not found");
     }
@@ -22,7 +32,7 @@ export async function getDb() {
 export async function fetchAllSignups() {
     try {
         const db = await getDb();
-        const { results } = await db.prepare("SELECT * FROM league_members ORDER BY joined_at DESC").all();
+        const { results } = await db.prepare("SELECT * FROM league_members ORDER BY joined_at DESC").all<Signup>();
         return results;
     } catch (error) {
         console.error("Failed to fetch signups:", error);
