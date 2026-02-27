@@ -81,7 +81,7 @@ export default function JoinLeagueForm({ initialJoined }: { initialJoined: boole
                     defaultChecked
                 />
                 <label htmlFor="opt_in" className="text-sm font-inter text-gray-700">
-                    I’d like to receive updates on plans as they take shape.
+                    I’d like to receive updates as plans take shape.
                 </label>
             </div>
             {error && <p className="text-sm text-red-500 font-inter">{error}</p>}
@@ -90,10 +90,10 @@ export default function JoinLeagueForm({ initialJoined }: { initialJoined: boole
                 disabled={isPending}
                 className="bg-black text-white py-4 px-8 uppercase tracking-[0.2em] hover:bg-gray-800 transition-colors disabled:bg-gray-400 font-josefin mt-4"
             >
-                {isPending ? "Joining..." : "Join the League!"}
+                {isPending ? "Joining..." : "JOIN THE OPERA LEAGUE"}
             </button>
             <p className="text-[10px] text-center font-inter text-gray-500 uppercase tracking-widest mt-2">
-                Participation is free and carries no obligation
+                Participation is free and carries no obligation.
             </p>
         </form>
     );

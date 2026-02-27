@@ -19,19 +19,20 @@ export default async function LeaguePage() {
 
                 <section className="font-light text-[1.1rem] leading-relaxed text-gray-800 flex flex-col gap-6 text-justify">
                     <p className="italic text-center text-lg mb-4">
-                        A community of people who want live opera to be part of Carmel’s cultural life.
+                        A community of people who believe live opera should have a vibrant home on the Monterey Peninsula.
                     </p>
                     <p>
-                        Opera Carmel is working to bring fully staged opera to Carmel’s main stage. The Opera League is a
-                        growing group of residents, artists, and arts patrons who want to see opera thrive locally.
+                        Opera Carmel is building the support needed to bring fully staged, professional opera
+                        productions to Carmel’s main stage. The Opera League is a growing circle of residents, artists,
+                        and arts patrons from across the region and beyond who want to see opera thrive here.
                     </p>
                     <p>
-                        By joining, you’re helping demonstrate community interest and staying connected as plans take
-                        shape.
+                        By joining, you help demonstrate meaningful community interest as plans move forward. Your name
+                        helps show that there is real demand for opera on the Central Coast.
                     </p>
                     <p className="text-center font-normal tracking-wide mt-4">
-                        Participation is free and carries no obligation — it simply signals:{" "}
-                        <span className="italic block mt-2 text-xl">&quot;I want this to exist.&quot;</span>
+                        Participation is free and carries no obligation. It simply signals:{" "}
+                        <span className="italic block mt-2 text-xl">&quot;I want opera to exist here.&quot;</span>
                     </p>
                 </section>
 
