@@ -35,3 +35,19 @@ export async function logoutAdmin() {
     cookieStore.delete("admin_session");
     redirect("/admin");
 }
+
+export async function deleteSignup(id: number) {
+    const { isAuthenticated, getDb } = await import("@/lib/league");
+    const { revalidatePath } = await import("next/cache");
+
+    const auth = await isAuthenticated();
+    if (!auth) {
+        throw new Error("Unauthorized");
+    }
+
+    const db = await getDb();
+    await db.prepare("DELETE FROM league_members WHERE id = ?").bind(id).run();
+
+    revalidatePath("/admin");
+    return { success: true };
+}
