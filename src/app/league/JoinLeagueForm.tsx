@@ -20,13 +20,29 @@ export default function JoinLeagueForm({ initialJoined }: { initialJoined: boole
         });
     }
 
+    function handleReset() {
+        // Clear cookies that track membership
+        document.cookie = "oc_league_joined=; Max-Age=0; path=/;";
+        document.cookie = "oc_client_id=; Max-Age=0; path=/;";
+        setJoined(false);
+        setError(null);
+    }
+
     if (joined) {
         return (
-            <div className="text-center p-8 border border-[#eaeaea] rounded-sm">
-                <h2 className="text-2xl mb-4 uppercase tracking-widest">Welcome to the League</h2>
-                <p className="font-inter font-light italic">
-                    Thank you for demonstrating your support. We will be in touch as plans take shape.
-                </p>
+            <div className="text-center p-8 border border-[#eaeaea] rounded-sm flex flex-col items-center gap-6">
+                <div>
+                    <h2 className="text-2xl mb-4 uppercase tracking-widest">Welcome to the League</h2>
+                    <p className="font-inter font-light italic">
+                        Thank you for demonstrating your support. We will be in touch as plans take shape.
+                    </p>
+                </div>
+                <button
+                    onClick={handleReset}
+                    className="border border-black text-black py-2 px-6 uppercase tracking-widest hover:bg-black hover:text-white transition-all font-josefin text-xs"
+                >
+                    Join Another
+                </button>
             </div>
         );
     }
