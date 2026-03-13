@@ -35,21 +35,11 @@ export async function joinLeague(formData: FormData) {
             .bind(name || null, email || null, location || null, opt_in ? 1 : 0, clientId)
             .run();
 
-        cookieStore.set("oc_league_joined", "true", {
-            maxAge: 60 * 60 * 24 * 365,
-            path: "/",
-        });
-
         return { success: true };
     } catch (error) {
         console.error("Failed to join league:", error);
         return { success: false, error: "Failed to persist membership" };
     }
-}
-
-export async function getLeagueStatus() {
-    const cookieStore = await cookies();
-    return cookieStore.get("oc_league_joined")?.value === "true";
 }
 
 export { fetchAllSignups as getAllSignups };

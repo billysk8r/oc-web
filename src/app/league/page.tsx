@@ -1,11 +1,8 @@
-import { getLeagueStatus } from "./actions";
 import JoinLeagueForm from "./JoinLeagueForm";
 
 export const dynamic = "force-dynamic";
 
 export default async function LeaguePage() {
-    const initialJoined = await getLeagueStatus();
-
     return (
         <div className="flex flex-col items-center min-h-screen p-5 py-20 text-center bg-white text-black font-inter">
             <div className="max-w-[700px] w-full flex flex-col gap-12">
@@ -36,7 +33,7 @@ export default async function LeaguePage() {
                     </p>
                 </section>
 
-                <JoinLeagueForm initialJoined={initialJoined} />
+                <JoinLeagueForm />
 
                 <footer className="mt-12 pt-8 border-t border-[#eaeaea]">
                     <p className="font-inter text-xs tracking-[0.2em] uppercase text-gray-500">
