@@ -1,28 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState, useTransition } from "react";
+import { useRef, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { joinLeague } from "./actions";
 
 export default function JoinLeagueForm() {
     const [isPending, startTransition] = useTransition();
     const [error, setError] = useState<string | null>(null);
-    const [showSuccess, setShowSuccess] = useState(false);
     const formRef = useRef<HTMLFormElement>(null);
-
-    useEffect(() => {
-        if (showSuccess) {
-            const timer = setTimeout(() => setShowSuccess(false), 5000);
-            return () => clearTimeout(timer);
-        }
-    }, [showSuccess]);
+    const router = useRouter();
 
     async function handleSubmit(formData: FormData) {
         setError(null);
         startTransition(async () => {
             const result = await joinLeague(formData);
             if (result.success) {
-                setShowSuccess(true);
-                formRef.current?.reset();
+                router.push("/league/thankyou");
             } else {
                 setError(result.error || "An error occurred");
             }
@@ -31,16 +24,6 @@ export default function JoinLeagueForm() {
 
     return (
         <div className="relative">
-            {/* Success Toast */}
-            {showSuccess && (
-                <div className="absolute top-[-80px] left-1/2 -translate-x-1/2 w-full max-w-md animate-in fade-in slide-in-from-top-4 duration-500">
-                    <div className="bg-black text-white p-4 text-center border border-white/20 shadow-2xl backdrop-blur-sm">
-                        <p className="uppercase tracking-widest text-xs font-josefin">
-                            Welcome to the League. Thank you for your support.
-                        </p>
-                    </div>
-                </div>
-            )}
 
             <form
                 ref={formRef}
