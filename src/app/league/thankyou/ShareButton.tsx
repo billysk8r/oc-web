@@ -5,11 +5,20 @@ import { useState } from "react";
 export default function ShareButton() {
     const [status, setStatus] = useState<"idle" | "shared" | "copied">("idle");
 
+    const getShareUrl = () => {
+        // We are at /league/thankyou, but we want to share /league
+        if (typeof window !== "undefined") {
+            return `${window.location.origin}/league`;
+        }
+        return "https://operacarmel.org/league"; // SSR fallback
+    };
+
     const handleShare = async () => {
+        const url = getShareUrl();
         const shareData = {
             title: "Opera Carmel League",
             text: "Join the Opera League to support fully staged, professional opera productions on the Monterey Peninsula.",
-            url: "https://operacarmel.org/league",
+            url: url,
         };
 
         if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
@@ -20,16 +29,16 @@ export default function ShareButton() {
             } catch (err) {
                 // If user cancels or share fails, fallback to clipboard
                 if ((err as Error).name !== "AbortError") {
-                    fallbackCopy();
+                    fallbackCopy(url);
                 }
             }
         } else {
-            fallbackCopy();
+            fallbackCopy(url);
         }
     };
 
-    const fallbackCopy = () => {
-        navigator.clipboard.writeText("https://operacarmel.org/league").then(() => {
+    const fallbackCopy = (url: string) => {
+        navigator.clipboard.writeText(url).then(() => {
             setStatus("copied");
             setTimeout(() => setStatus("idle"), 3000);
         });
