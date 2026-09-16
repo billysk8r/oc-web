@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function AboutPage() {
 	return (
 		<div className="flex flex-col items-center w-full p-5 py-20 text-center bg-white text-black font-inter">
@@ -40,12 +42,12 @@ export default function AboutPage() {
 							Join the Opera League and be part of what comes next.
 						</p>
 					</div>
-					<a
+					<Link
 						href="/league"
 						className="inline-block bg-black text-white py-4 px-8 uppercase tracking-[0.2em] hover:bg-gray-800 transition-colors font-josefin text-sm"
 					>
 						Join the league →
-					</a>
+					</Link>
 				</div>
 			</div>
 		</div>
