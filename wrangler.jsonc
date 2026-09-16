@@ -9,29 +9,19 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "oc-web",
-	"main": ".open-next/worker.js",
+	"main": "vinext/server/fetch-handler",
 	"compatibility_date": "2025-12-01",
 	"compatibility_flags": [
-		"nodejs_compat",
-		"global_fetch_strictly_public"
+		"nodejs_compat"
 	],
 	"assets": {
 		"binding": "ASSETS",
-		"directory": ".open-next/assets"
+		"directory": "dist/client",
+		"not_found_handling": "none"
 	},
 	"images": {
-		// Enable image optimization
-		// see https://opennext.js.org/cloudflare/howtos/image
 		"binding": "IMAGES"
 	},
-	"services": [
-		{
-			// Self-reference service binding, the service name must match the worker name
-			// see https://opennext.js.org/cloudflare/caching
-			"binding": "WORKER_SELF_REFERENCE",
-			"service": "oc-web"
-		}
-	],
 	"observability": {
 		"enabled": true
 	},

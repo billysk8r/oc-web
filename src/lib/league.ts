@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import { env } from "cloudflare:workers";
 
 export interface Signup {
     id: number;
@@ -19,9 +20,6 @@ export async function hashPassword(password: string): Promise<string> {
 }
 
 export async function getDb() {
-    // Use dynamic import to avoid bundling issues with @opennextjs/cloudflare in some environments
-    const { getCloudflareContext } = await import("@opennextjs/cloudflare");
-    const { env } = (await getCloudflareContext()) as { env: CloudflareEnv };
     const db = env.DB;
     if (!db) {
         throw new Error("DB binding not found");

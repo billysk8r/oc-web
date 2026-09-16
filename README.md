@@ -1,10 +1,7 @@
-# OpenNext Starter
+# oc-web
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a [Next.js](https://nextjs.org) project running on [vinext](https://github.com/cloudflare/vinext) and Cloudflare Workers.
 
-## Getting Started
-
-Read the documentation at https://opennext.js.org/cloudflare.
 
 ## Develop
 

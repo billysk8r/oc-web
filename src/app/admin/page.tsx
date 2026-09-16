@@ -1,4 +1,4 @@
-import { Signup, fetchAllSignups, isAdminPasswordSet, isAuthenticated } from "@/lib/league";
+import { fetchAllSignups, isAdminPasswordSet, isAuthenticated } from "@/lib/league";
 import SetupPasswordForm from "./SetupPasswordForm";
 import LoginForm from "./LoginForm";
 import SignupTable from "./SignupTable";
