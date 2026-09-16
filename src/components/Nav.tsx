@@ -75,7 +75,7 @@ export default function Nav() {
 								key={link.href}
 								href={link.href}
 								onClick={() => setMenuOpen(false)}
-								className={`text-left px-5 py-3 text-sm font-inter tracking-[0.2em] uppercase transition-colors ${
+								className={`text-right px-5 py-3 text-sm font-inter tracking-[0.2em] uppercase transition-colors ${
 									pathname === link.href
 										? "text-black bg-gray-50"
 										: "text-gray-500 hover:text-black hover:bg-gray-50"

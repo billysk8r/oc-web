@@ -4,7 +4,7 @@ export default function AboutPage() {
 			<div className="max-w-[700px] w-full flex flex-col gap-12">
 				<section className="font-light text-[1.1rem] leading-relaxed text-gray-800 flex flex-col gap-8 text-justify">
 					<p className="italic text-center text-lg font-normal">
-						Opera belongs here.
+						Opera that belongs here.
 					</p>
 
 					<p>
