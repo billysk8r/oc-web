@@ -18,12 +18,12 @@ export default async function LeaguePage() {
                     <p className="italic text-center text-lg mb-4">
                         A community of people who believe live opera should have a vibrant home on the Monterey Peninsula.
                     </p>
-                    <p>
+                    <p className="text-left">
                         Opera Carmel is building the support needed to bring fully staged, professional opera
                         productions to Carmel’s main stage. The Opera League is a growing circle of residents, artists,
                         and arts patrons from across the region and beyond who want to see opera thrive here.
                     </p>
-                    <p>
+                    <p className="text-left">
                         By joining, you help demonstrate meaningful community interest as plans move forward. Your name
                         helps show that there is real demand for opera on the Central Coast.
                     </p>
