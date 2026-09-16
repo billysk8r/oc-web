@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -22,8 +23,14 @@ export default function Nav() {
 	return (
 		<nav className="bg-white border-b border-[#eaeaea]">
 			<div className="max-w-[1100px] mx-auto flex items-center justify-between px-5 py-4">
-				<Link href="/" className="font-josefin font-normal text-xl text-black hover:text-gray-700 transition-colors">
-					Opera Carmel
+				<Link href="/" className="block hover:opacity-85 transition-opacity">
+					<Image
+						src="/favicon-512x512.png"
+						alt="Opera Carmel"
+						width={40}
+						height={40}
+						className="h-10 w-auto"
+					/>
 				</Link>
 
 				{/* Wide viewport: horizontal links */}
