@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { loginAdmin } from "./actions";
 
 export default function LoginForm() {
+    const router = useRouter();
     const [password, setPassword] = useState("");
     const [rememberMe, setRememberMe] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -18,11 +20,20 @@ export default function LoginForm() {
             const result = await loginAdmin(password, rememberMe);
             if (result && !result.success) {
                 setError(result.error || "Login failed");
+                setLoading(false);
+            } else if (result?.success) {
+                router.refresh();
             }
-        } catch (err) {
+        } catch (err: unknown) {
+            if (
+                err &&
+                typeof err === "object" &&
+                ("digest" in err || (err instanceof Error && err.message === "NEXT_REDIRECT"))
+            ) {
+                return;
+            }
             setError("An unexpected error occurred");
             console.error(err);
-        } finally {
             setLoading(false);
         }
     }

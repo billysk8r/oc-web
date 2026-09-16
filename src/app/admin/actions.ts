@@ -2,12 +2,13 @@
 
 import { hashPassword, getDb, createAdminSession, verifyAdminPassword, isAdminPasswordSet } from "@/lib/league";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export async function setupAdminPassword(password: string) {
     // Safety check: only allow if not already set
     const alreadySet = await isAdminPasswordSet();
     if (alreadySet) {
-        throw new Error("Admin password already set");
+        return { success: false, error: "Admin password already set" };
     }
 
     const db = await getDb();
@@ -16,7 +17,8 @@ export async function setupAdminPassword(password: string) {
     await db.prepare("INSERT INTO admin_settings (key, value) VALUES ('admin_password', ?)").bind(hashed).run();
 
     await createAdminSession(false); // Default to session only for setup
-    redirect("/admin");
+    revalidatePath("/admin");
+    return { success: true };
 }
 
 export async function loginAdmin(password: string, rememberMe: boolean) {
@@ -26,7 +28,8 @@ export async function loginAdmin(password: string, rememberMe: boolean) {
     }
 
     await createAdminSession(rememberMe);
-    redirect("/admin");
+    revalidatePath("/admin");
+    return { success: true };
 }
 
 export async function logoutAdmin() {
@@ -38,7 +41,6 @@ export async function logoutAdmin() {
 
 export async function deleteSignup(id: number) {
     const { isAuthenticated, getDb } = await import("@/lib/league");
-    const { revalidatePath } = await import("next/cache");
 
     const auth = await isAuthenticated();
     if (!auth) {

@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { setupAdminPassword } from "./actions";
 
 export default function SetupPasswordForm() {
+    const router = useRouter();
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState<string | null>(null);
@@ -25,11 +27,23 @@ export default function SetupPasswordForm() {
 
         setLoading(true);
         try {
-            await setupAdminPassword(password);
-        } catch (err) {
+            const result = await setupAdminPassword(password);
+            if (result && !result.success) {
+                setError(result.error || "Failed to set password. Please try again.");
+                setLoading(false);
+            } else if (result?.success) {
+                router.refresh();
+            }
+        } catch (err: unknown) {
+            if (
+                err &&
+                typeof err === "object" &&
+                ("digest" in err || (err instanceof Error && err.message === "NEXT_REDIRECT"))
+            ) {
+                return;
+            }
             setError("Failed to set password. Please try again.");
             console.error(err);
-        } finally {
             setLoading(false);
         }
     }
