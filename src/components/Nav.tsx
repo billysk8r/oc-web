@@ -12,6 +12,7 @@ interface NavLink {
 const links: NavLink[] = [
 	{ label: "Home", href: "/" },
 	{ label: "About", href: "/about" },
+	{ label: "League", href: "/league" },
 ];
 
 export default function Nav() {
