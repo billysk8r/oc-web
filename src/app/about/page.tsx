@@ -30,6 +30,23 @@ export default function AboutPage() {
 						of our time.
 					</p>
 				</section>
+
+				<div className="flex flex-col items-center gap-6 pt-4">
+					<div className="text-center">
+						<p className="font-inter text-[1.1rem] text-gray-800 mb-1">
+							Think opera belongs here, too?
+						</p>
+						<p className="font-inter text-gray-600">
+							Join the Opera League and be part of what comes next.
+						</p>
+					</div>
+					<a
+						href="/league"
+						className="inline-block bg-black text-white py-4 px-8 uppercase tracking-[0.2em] hover:bg-gray-800 transition-colors font-josefin text-sm"
+					>
+						Join the league →
+					</a>
+				</div>
 			</div>
 		</div>
 	);
