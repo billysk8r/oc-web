@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Josefin_Sans, Inter } from "next/font/google";
 import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const josefinSans = Josefin_Sans({
@@ -38,9 +39,12 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<head />
-			<body className={`${josefinSans.variable} ${inter.variable} antialiased`}>
+			<body className={`${josefinSans.variable} ${inter.variable} antialiased flex flex-col min-h-screen`}>
 				<Nav />
-				{children}
+				<main className="flex-1">
+					{children}
+				</main>
+				<Footer />
 			</body>
 		</html>
 	);

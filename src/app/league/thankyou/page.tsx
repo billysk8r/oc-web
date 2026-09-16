@@ -21,12 +21,6 @@ export default function ThankYouPage() {
                 </section>
 
                 <ShareButton />
-
-                <footer className="mt-12 w-full pt-8 border-t border-[#eaeaea]">
-                    <p className="font-inter text-xs tracking-[0.2em] uppercase text-gray-500">
-                        Opera Carmel · A new resident opera company
-                    </p>
-                </footer>
             </div>
         </div>
     );

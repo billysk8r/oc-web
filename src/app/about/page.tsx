@@ -30,12 +30,6 @@ export default function AboutPage() {
 						of our time.
 					</p>
 				</section>
-
-				<footer className="mt-12 pt-8 border-t border-[#eaeaea]">
-					<p className="font-inter text-xs tracking-[0.2em] uppercase text-gray-500">
-						Opera Carmel
-					</p>
-				</footer>
 			</div>
 		</div>
 	);
