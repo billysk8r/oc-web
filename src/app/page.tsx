@@ -10,9 +10,6 @@ export default function Home() {
 				<p className="font-light text-[1.15rem] tracking-[0.02em] mb-[25px] italic text-[#4a4a4a]">
 					A new tradition begins.
 				</p>
-				<p className="font-normal text-[0.9rem] tracking-[0.3em] uppercase border-t border-[#eaeaea] inline-block pt-[15px] mb-8">
-					Coming 2026
-				</p>
 
 				<FlodeskForm />
 			</div>
@@ -20,7 +17,7 @@ export default function Home() {
 			<footer className="mt-12 pt-8 border-t border-[#eaeaea] w-full max-w-[600px]">
 				<div className="flex flex-col items-center gap-2">
 					<p className="font-inter text-xs tracking-[0.2em] uppercase text-gray-500">
-						Opera Carmel · A new resident opera company
+						Opera Carmel
 					</p>
 					<p className="font-inter text-xs text-gray-500">
 						P.O. Box 1167, Carmel-by-the-Sea, CA 93921
