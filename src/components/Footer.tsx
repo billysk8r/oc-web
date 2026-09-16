@@ -1,6 +1,6 @@
 export default function Footer() {
 	return (
-		<footer className="mt-12 pt-8 border-t border-[#eaeaea] w-full">
+		<footer className="mt-12 pt-8 pb-12 border-t border-[#eaeaea] w-full">
 			<div className="max-w-[1100px] mx-auto flex flex-col items-center gap-2">
 				<p className="font-inter text-xs tracking-[0.2em] uppercase text-gray-500">
 					Opera Carmel
