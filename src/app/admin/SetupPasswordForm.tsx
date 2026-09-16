@@ -49,7 +49,7 @@ export default function SetupPasswordForm() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-white p-6 font-inter text-black">
+        <div className="h-full flex items-center justify-center bg-white p-6 font-inter text-black">
             <div className="max-w-md w-full">
                 <div className="text-center mb-10">
                     <p className="font-josefin text-sm tracking-[0.4em] uppercase mb-2">Opera Carmel</p>

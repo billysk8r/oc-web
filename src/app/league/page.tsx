@@ -4,7 +4,7 @@ export const dynamic = "force-dynamic";
 
 export default async function LeaguePage() {
     return (
-        <div className="flex flex-col items-center min-h-screen p-5 py-20 text-center bg-white text-black font-inter">
+        <div className="flex flex-col items-center w-full p-5 py-20 text-center bg-white text-black font-inter">
             <div className="max-w-[700px] w-full flex flex-col gap-12">
                 <header className="flex flex-col gap-4">
                     <p className="font-josefin text-sm tracking-[0.4em] uppercase mb-2">Opera Carmel</p>
