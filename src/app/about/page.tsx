@@ -2,7 +2,7 @@ export default function AboutPage() {
 	return (
 		<div className="flex flex-col items-center w-full p-5 py-20 text-center bg-white text-black font-inter">
 			<div className="max-w-[700px] w-full flex flex-col gap-12">
-				<section className="font-light text-[1.1rem] leading-relaxed text-gray-800 flex flex-col gap-8 text-justify">
+				<section className="font-light text-[1.1rem] leading-relaxed text-gray-800 flex flex-col gap-8 text-left">
 					<p className="italic text-center text-lg font-normal">
 						Opera that belongs here.
 					</p>
