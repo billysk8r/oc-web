@@ -67,6 +67,25 @@ export async function createEvent(formData: FormData) {
     return { success: true };
 }
 
+export async function updateEvent(id: number, formData: FormData) {
+    const { isAuthenticated, getDb } = await import("@/lib/league");
+    const auth = await isAuthenticated();
+    if (!auth) throw new Error("Unauthorized");
+    const db = await getDb();
+    await db.prepare("UPDATE events SET title = ?, date_text = ?, time_text = ?, venue = ?, description = ?, ticket_link = ? WHERE id = ?")
+        .bind(
+            formData.get("title") as string,
+            formData.get("date_text") as string,
+            formData.get("time_text") as string,
+            formData.get("venue") as string,
+            formData.get("description") as string,
+            formData.get("ticket_link") as string,
+            id,
+        ).run();
+    revalidatePath("/admin");
+    return { success: true };
+}
+
 export async function deleteSignup(id: number) {
     const { isAuthenticated, getDb } = await import("@/lib/league");
 
