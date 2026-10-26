@@ -39,6 +39,34 @@ export async function logoutAdmin() {
     redirect("/admin");
 }
 
+export async function deleteEvent(id: number) {
+    const { isAuthenticated, getDb } = await import("@/lib/league");
+    const auth = await isAuthenticated();
+    if (!auth) throw new Error("Unauthorized");
+    const db = await getDb();
+    await db.prepare("DELETE FROM events WHERE id = ?").bind(id).run();
+    revalidatePath("/admin");
+    return { success: true };
+}
+
+export async function createEvent(formData: FormData) {
+    const { isAuthenticated, getDb } = await import("@/lib/league");
+    const auth = await isAuthenticated();
+    if (!auth) throw new Error("Unauthorized");
+    const db = await getDb();
+    await db.prepare("INSERT INTO events (title, date_text, time_text, venue, description, ticket_link) VALUES (?, ?, ?, ?, ?, ?)")
+        .bind(
+            formData.get("title") as string,
+            formData.get("date_text") as string,
+            formData.get("time_text") as string,
+            formData.get("venue") as string,
+            formData.get("description") as string,
+            formData.get("ticket_link") as string,
+        ).run();
+    revalidatePath("/admin");
+    return { success: true };
+}
+
 export async function deleteSignup(id: number) {
     const { isAuthenticated, getDb } = await import("@/lib/league");
 

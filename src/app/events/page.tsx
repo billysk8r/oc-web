@@ -1,0 +1,46 @@
+import Link from "next/link";
+import { fetchEvents } from "@/lib/events";
+
+export const dynamic = "force-dynamic";
+
+export default async function EventsPage() {
+    const events = await fetchEvents();
+
+    return (
+        <div className="flex flex-col items-center w-full p-5 py-20 text-center bg-white text-black font-inter">
+            <div className="max-w-[700px] w-full flex flex-col gap-12">
+                <header className="flex flex-col gap-4">
+                    <p className="font-josefin text-sm tracking-[0.4em] uppercase mb-2">Opera Carmel</p>
+                    <h1 className="font-normal text-[clamp(2rem,6vw,3.5rem)] tracking-[0.1em] uppercase leading-tight">
+                        Upcoming Events
+                    </h1>
+                    <div className="w-16 h-[1px] bg-black mx-auto mt-4"></div>
+                </header>
+
+                {events.length === 0 ? (
+                    <p className="text-gray-500 italic">No events announced yet.</p>
+                ) : (
+                    <section className="flex flex-col gap-12">
+                        {events.map((event) => (
+                            <article key={event.id} className="text-left border-t border-[#eaeaea] pt-8">
+                                <h2 className="font-josefin text-xl tracking-[0.15em] uppercase mb-1">{event.title}</h2>
+                                <p className="text-sm tracking-[0.15em] uppercase text-gray-500 mb-4">
+                                    {event.date_text} | {event.time_text} at {event.venue}
+                                </p>
+                                <div className="font-light text-[1.05rem] leading-relaxed text-gray-800 whitespace-pre-line mb-6">
+                                    {event.description}
+                                </div>
+                                <Link
+                                    href={event.ticket_link}
+                                    className="inline-block bg-black text-white py-3 px-8 uppercase tracking-[0.2em] hover:bg-gray-800 transition-colors font-josefin text-sm"
+                                >
+                                    Get Tickets →
+                                </Link>
+                            </article>
+                        ))}
+                    </section>
+                )}
+            </div>
+        </div>
+    );
+}

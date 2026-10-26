@@ -6,6 +6,8 @@ import { logoutAdmin } from "./actions";
 
 export const dynamic = "force-dynamic";
 
+import AdminEventsSection from "./AdminEventsSection";
+
 export default async function AdminPage() {
     const isSet = await isAdminPasswordSet();
     if (!isSet) {
@@ -43,6 +45,8 @@ export default async function AdminPage() {
                     </a>
                 </div>
             </header>
+
+            <AdminEventsSection />
 
             <SignupTable initialSignups={signups} />
         </div>

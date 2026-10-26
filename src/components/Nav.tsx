@@ -14,6 +14,7 @@ const links: NavLink[] = [
 	{ label: "Home", href: "/" },
 	{ label: "About", href: "/about" },
 	{ label: "League", href: "/league" },
+	{ label: "Events", href: "/events" },
 ];
 
 export default function Nav() {
