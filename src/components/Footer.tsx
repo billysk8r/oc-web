@@ -18,7 +18,7 @@ export default function Footer() {
 				</p>
 				<div className="flex gap-4 mt-1">
 					<a href="https://www.instagram.com/operacarmel/" aria-label="Instagram" className="hover:opacity-70 transition-opacity"><img src="/ig.png" alt="Instagram" width={20} height={20} /></a>
-					<a href="https://www.facebook.com/operacarmel/" aria-label="Facebook" className="hover:opacity-70 transition-opacity"><img src="/fb.png" alt="Facebook" width={20} height={20} /></a>
+					<a href="https://www.facebook.com/operacarmelca/" aria-label="Facebook" className="hover:opacity-70 transition-opacity"><img src="/fb.png" alt="Facebook" width={20} height={20} /></a>
 				</div>
 			</div>
 		</footer>
