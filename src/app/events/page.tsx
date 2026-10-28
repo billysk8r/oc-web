@@ -24,7 +24,7 @@ export default async function EventsPage() {
                 ) : (
                     <section className="flex flex-col gap-12">
                         {events.map((event) => (
-                            <article key={event.id} className="text-left border-t border-[#eaeaea] pt-8">
+                            <article key={event.id} className="text-left">
                                 <h2 className="font-josefin text-xl tracking-[0.15em] uppercase mb-1">{event.title}</h2>
                                 <p className="text-sm tracking-[0.15em] uppercase text-gray-500 mb-4">
                                     {event.date_text} | {event.time_text} at {event.venue}
