@@ -3,13 +3,15 @@ import ShareButton from "./ShareButton";
 export default function ThankYouPage() {
     return (
         <div className="flex flex-col items-center w-full p-5 text-center bg-white text-black font-inter">
-            <div className="max-w-[700px] w-full flex flex-col gap-12 items-center">
-                            <img src="/OperaCarmel1200x600.png" alt="Opera Carmel" className="mx-auto max-w-[320px] w-full h-auto mb-4" />
-                            <header className="flex flex-col gap-4 items-center">
-                    <h1 className="font-normal text-[clamp(2rem,6vw,3.5rem)] tracking-[0.1em] uppercase leading-tight">
+            <div className="max-w-[600px] w-full flex-1">
+                <h1 className="mb-[10px]">
+                    <img src="/OperaCarmel1200x600.png" alt="Opera Carmel" className="mx-auto max-w-[320px] w-full h-auto" />
+                </h1>
+                <header className="flex flex-col gap-3 mb-8">
+                    <h2 className="font-normal text-[clamp(1.5rem,5vw,2.5rem)] tracking-[0.1em] uppercase leading-tight">
                         Welcome to the League
-                    </h1>
-                    <div className="w-16 h-[1px] bg-black mt-4"></div>
+                    </h2>
+                    <div className="w-16 h-[1px] bg-black mx-auto mt-2"></div>
                 </header>
 
                 <section className="font-light text-[1.1rem] leading-relaxed text-gray-800 flex flex-col gap-6 text-center">
