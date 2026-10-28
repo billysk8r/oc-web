@@ -13,7 +13,7 @@ export default async function EventsPage() {
                     <img src="/OperaCarmel1200x600.png" alt="Opera Carmel" className="mx-auto max-w-[320px] w-full h-auto" />
                 </h1>
                 <header className="flex flex-col gap-3 mb-8">
-                    <h2 className="font-normal text-2xl tracking-[0.1em] uppercase leading-tight">
+                    <h2 className="font-normal text-xl tracking-[0.1em] uppercase leading-tight">
                         Upcoming Events
                     </h2>
                     <div className="w-16 h-[1px] bg-black mx-auto mt-2"></div>
