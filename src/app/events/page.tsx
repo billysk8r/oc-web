@@ -9,7 +9,7 @@ export default async function EventsPage() {
     return (
         <div className="flex flex-col items-center w-full p-5 py-20 text-center bg-white text-black font-inter">
             <div className="max-w-[700px] w-full flex flex-col gap-12">
-            	<img src="/OperaCarmel1200x600.png" alt="Opera Carmel" className="mx-auto max-w-[400px] w-full h-auto mb-4" />
+            	<img src="/OperaCarmel1200x600.png" alt="Opera Carmel" className="mx-auto max-w-[320px] w-full h-auto mb-4" />
             	<header className="flex flex-col gap-4">
                     <h1 className="font-normal text-[clamp(2rem,6vw,3.5rem)] tracking-[0.1em] uppercase leading-tight">
                         Upcoming Events
