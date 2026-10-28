@@ -8,9 +8,9 @@ export default function AboutPage() {
                     <img src="/OperaCarmel1200x600.png" alt="Opera Carmel" className="mx-auto max-w-[320px] w-full h-auto" />
                 </h1>
                 <header className="flex flex-col gap-3 mb-8">
-                    <h2 className="font-normal text-xl tracking-[0.1em] uppercase leading-tight">
+                    <p className="font-light text-[1.15rem] tracking-[0.02em] italic text-[#4a4a4a]">
                         Opera that belongs here.
-                    </h2>
+                    </p>
                     <div className="w-16 h-[1px] bg-black mx-auto mt-2"></div>
                 </header>
 
