@@ -10,7 +10,7 @@ export default async function LeaguePage() {
                     <img src="/OperaCarmel1200x600.png" alt="Opera Carmel" className="mx-auto max-w-[320px] w-full h-auto" />
                 </h1>
                 <header className="flex flex-col gap-3 mb-8">
-                    <h2 className="font-normal text-[clamp(1.5rem,5vw,2.5rem)] tracking-[0.1em] uppercase leading-tight">
+                    <h2 className="font-normal text-2xl tracking-[0.1em] uppercase leading-tight">
                         Join the Opera League
                     </h2>
                     <div className="w-16 h-[1px] bg-black mx-auto mt-2"></div>
