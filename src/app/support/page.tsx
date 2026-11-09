@@ -74,7 +74,7 @@ export default function SupportPage() {
                     <div className="mt-6 flex justify-center">
                     <Link
                         href="https://www.zeffy.com/en-US/donation-form/support-opera-carmel"
-                        className="inline-block bg-black text-white py-4 px-8 uppercase tracking-[0.2em] hover:bg-gray-800 transition-colors font-josefin text-sm"
+                        className="inline-block bg-black text-white py-4 px-8 uppercase tracking-[0.2em] hover:bg-gray-800 transition-colors font-josefin text-sm font-normal"
                     >
                         SUPPORT OPERA CARMEL →
                     </Link>
