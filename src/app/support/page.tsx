@@ -71,12 +71,14 @@ export default function SupportPage() {
                         Help us write the first chapter of Opera Carmel's story.
                     </p>
 
+                    <div className="mt-6 flex justify-center">
                     <Link
                         href="https://www.zeffy.com/en-US/donation-form/support-opera-carmel"
-                        className="inline-block bg-black text-white py-3 px-8 uppercase tracking-[0.2em] hover:bg-gray-800 transition-colors font-josefin text-sm"
+                        className="inline-block bg-black text-white py-4 px-8 uppercase tracking-[0.2em] hover:bg-gray-800 transition-colors font-josefin text-sm"
                     >
                         SUPPORT OPERA CARMEL →
                     </Link>
+                </div>
 
                     <p className="mt-6 text-[0.85rem] text-gray-500 italic">
                         Opera Carmel is a 501(c)(3) nonprofit organization. Contributions are tax-deductible to the extent permitted by law.
