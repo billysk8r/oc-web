@@ -14,6 +14,7 @@ const links: NavLink[] = [
 	{ label: "Home", href: "/" },
 	{ label: "Events", href: "/events" },
 	{ label: "About", href: "/about" },
+	{ label: "Support", href: "/support" },
 	{ label: "League", href: "/league" },
 ];
 
